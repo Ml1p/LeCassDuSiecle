@@ -191,9 +191,8 @@ print("\nQuestion 7-1:\na = "+str(1/2)+"\tb = "+str(b0))
 V[0]=V[0]*r**2*sin(Teta)
 V[0]=V[0].subs(r,r0)
 
-print("V: "+str(V[0]))
-I=nsimplify(integrate(V[0],(Teta,0,b0*cos(phi)),(phi,-pi/2,pi/2)))
-
+I=integrate(V[0],(Teta,0,b0*cos(phi)))
+I=integrate(I,(phi,-pi/2,pi/2))
 
 
 print("\nQuestion 7-2:\nI = "+str(I))
