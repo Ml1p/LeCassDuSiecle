@@ -192,7 +192,9 @@ V[0]=V[0]*r**2*sin(Teta)
 V[0]=V[0].subs(r,r0)
 
 I=integrate(V[0],(Teta,0,b0*cos(phi)))
-I=integrate(I,(phi,-pi/2,pi/2))
+I=I.subs(cos(phi),u)
+I=I/-sin(phi)
+I=integrate(I,(u,-1,1),(phi,-pi/2,pi/2))
 
 
 print("\nQuestion 7-2:\nI = "+str(I))
