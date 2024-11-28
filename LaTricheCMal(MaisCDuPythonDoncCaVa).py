@@ -191,6 +191,13 @@ print("\nQuestion 7-1:\na = "+str(1/2)+"\tb = "+str(b0))
 V[0]=V[0]*r**2*sin(Teta)
 V[0]=V[0].subs(r,r0)
 
+I=V[0].subs(sin(Teta),u)
+I=I/cos(Teta)
+print("Uniquement le commencement "+str(I))
+I=integrate(I,(u,pi/2,sin(cos(phi))),(phi,-pi/2,pi/2)) #Franchement pas sur des bornes sur u (sin(cos(phi)) ça résoud pas le pb)
+print("La fin ? "+str(I))
+
+
 I=integrate(V[0],(Teta,0,b0*cos(phi)))
 I=I.subs(cos(phi),u)
 I=I/-sin(phi)
